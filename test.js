@@ -72,6 +72,7 @@ tape('query', function (t) {
     id: 42,
     questions: [{
       type: 'A',
+      class: 'IN',
       name: 'hello.a.com'
     }, {
       type: 'SRV',
@@ -84,7 +85,7 @@ tape('query', function (t) {
     id: 42,
     questions: [{
       type: 'A',
-      class: 100,
+      class: 'CH',
       name: 'hello.a.com'
     }, {
       type: 'SRV',
@@ -101,10 +102,12 @@ tape('response', function (t) {
     flags: packet.TRUNCATED_RESPONSE,
     answers: [{
       type: 'A',
+      class: 'IN',
       name: 'hello.a.com',
       data: '127.0.0.1'
     }, {
       type: 'SRV',
+      class: 'IN',
       name: 'hello.srv.com',
       data: {
         port: 9090,
@@ -112,6 +115,7 @@ tape('response', function (t) {
       }
     }, {
       type: 'CNAME',
+      class: 'IN',
       name: 'hello.cname.com',
       data: 'hello.other.domain.com'
     }]
